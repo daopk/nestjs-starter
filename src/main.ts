@@ -10,6 +10,13 @@ async function bootstrap() {
     setupSwagger(app);
   }
 
+  app.setGlobalPrefix(env.API_PREFIX);
+  app.enableCors({
+    origin: (origin, callback) => {
+      callback(null, env.isDev || env.CORS_ORIGINS.includes(origin));
+    },
+  });
+
   // Starts listening for shutdown hooks
   app.enableShutdownHooks();
 
