@@ -1,0 +1,20 @@
+version: '3.9'
+
+services:
+  mongodb:
+    image: mongo:5.0
+    container_name: mongodb
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo_data:/data/db
+      - mongo_config:/data/configdb
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=root
+      - MONGO_INITDB_DATABASE=nestjs-starter
+    restart: always
+
+volumes:
+  mongo_data:
+  mongo_config:
