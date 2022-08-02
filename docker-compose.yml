@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   mongodb:
-    image: mongo:5.0
+    image: mongo:5-focal
     container_name: mongodb
     ports:
       - 27017:27017
@@ -15,6 +15,16 @@ services:
       - MONGO_INITDB_DATABASE=nestjs-starter
     restart: always
 
+  redis:
+    image: redis:alpine
+    container_name: redis
+    ports:
+      - 6379:6379
+    volumes:
+      - redis_data:/data
+    restart: always
+
 volumes:
   mongo_data:
   mongo_config:
+  redis_data:
