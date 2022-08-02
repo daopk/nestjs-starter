@@ -11,9 +11,6 @@ import { env } from '~/env';
       entities: ['dist/**/*.entity.js'],
       debug: env.isDev,
       ensureIndexes: true,
-      discovery: {
-        warnWhenNoEntities: false,
-      },
     }),
   ],
 })
