@@ -1,3 +1,4 @@
+import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from '~/app.module';
 import { env } from '~/env';
@@ -16,6 +17,8 @@ async function bootstrap() {
       callback(null, env.isDev || env.CORS_ORIGINS.includes(origin));
     },
   });
+
+  app.useGlobalPipes(new ValidationPipe());
 
   // Starts listening for shutdown hooks
   app.enableShutdownHooks();
