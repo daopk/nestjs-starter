@@ -4,7 +4,7 @@ import { env } from '~/env';
 import { setupSwagger } from '~/swagger';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, { logger: ['warn'] });
 
   if (env.isDev) {
     setupSwagger(app);
