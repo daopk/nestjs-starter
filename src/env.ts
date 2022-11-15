@@ -1,4 +1,5 @@
 import { arrStr, defineEnv, num, str } from '@daopk/env';
+import { Configuration } from '@mikro-orm/core';
 
 export const env = defineEnv({
   NODE_ENV: str(),
@@ -10,7 +11,10 @@ export const env = defineEnv({
 
   CORS_ORIGINS: arrStr({ default: [] }),
 
-  DB_TYPE: str({ default: 'mongo', choices: ['mongo', 'mysql', 'mariadb', 'postgresql', 'sqlite', 'better-sqlite'] }),
+  DB_TYPE: str<keyof typeof Configuration.PLATFORMS>({
+    default: 'mongo',
+    choices: Object.keys(Configuration.PLATFORMS) as any,
+  }),
   DB_URI: str({ desc: 'Database connection string' }),
   /**
    * Result cache expiration in milliseconds
