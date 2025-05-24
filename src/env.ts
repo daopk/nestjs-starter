@@ -1,7 +1,10 @@
-import { defineEnv, num, str } from '@daopk/env';
+import { arrStr, defineEnv, num, str } from '@daopk/env';
 
 export const env = defineEnv({
     NODE_ENV: str(),
 
     SERVER_PORT: num({ default: 3000 }),
+
+    SWAGGER_PATH: str({ default: '', devDefault: '/docs' }),
+    SWAGGER_SERVERS: arrStr({ default: [] }),
 });
