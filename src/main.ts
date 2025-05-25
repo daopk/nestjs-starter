@@ -5,10 +5,14 @@ import { env } from '~/env';
 import { setupSwagger } from '~/setup/setupSwagger';
 
 async function bootstrap() {
-    const app = await NestFactory.create<NestFastifyApplication>(AppModule, new FastifyAdapter());
+    const app = await NestFactory.create<NestFastifyApplication>(
+        AppModule,
+        new FastifyAdapter(),
+    );
 
     setupSwagger(app);
 
-    await app.listen(env.SERVER_PORT);
+    await app.listen(env.SERVER_PORT, env.SERVER_HOST);
 }
+
 bootstrap();
