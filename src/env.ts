@@ -8,4 +8,6 @@ export const env = defineEnv({
 
     SWAGGER_PATH: str({ default: '', devDefault: '/docs' }),
     SWAGGER_SERVERS: arrStr({ default: [] }),
+
+    CORS_ORIGINS: arrStr<string[]>({ default: [] }),
 });

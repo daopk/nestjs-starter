@@ -10,6 +10,11 @@ async function bootstrap() {
         new FastifyAdapter(),
     );
 
+    const corsOrigins = new Set(env.CORS_ORIGINS);
+    app.enableCors({
+        origin: async (origin: string) => corsOrigins.has(origin),
+    });
+
     setupSwagger(app);
 
     app.enableShutdownHooks();
