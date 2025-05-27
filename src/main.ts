@@ -1,3 +1,4 @@
+import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify';
 import { AppModule } from '~/app.module';
@@ -20,6 +21,9 @@ async function bootstrap() {
     app.enableShutdownHooks();
 
     await app.listen(env.SERVER_PORT, env.SERVER_HOST);
+
+    const url = await app.getUrl();
+    Logger.debug(`Server is running on ${url}`, 'Bootstrap');
 }
 
 bootstrap();
