@@ -10,4 +10,6 @@ export const env = defineEnv({
     SWAGGER_SERVERS: arrStr({ default: [] }),
 
     CORS_ORIGINS: arrStr<string[]>({ default: [] }),
+
+    DB_CLIENT_URL: str(),
 });
