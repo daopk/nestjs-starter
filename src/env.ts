@@ -6,6 +6,7 @@ export const env = defineEnv({
     SERVER_PORT: num({ default: 3000 }),
     SERVER_HOST: str({ default: '0.0.0.0', devDefault: '127.0.0.1' }),
 
+    SWAGGER_TITLE: str({ default: 'API Reference' }),
     SWAGGER_PATH: str({ default: '', devDefault: '/docs' }),
     SWAGGER_SERVERS: arrStr({ default: [] }),
 
