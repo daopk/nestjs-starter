@@ -1,7 +1,13 @@
-import { Entity, PrimaryKey } from '@mikro-orm/core';
+import { defineEntity, p } from '@mikro-orm/core';
 
-@Entity({ tableName: 'users' })
-export class User {
-    @PrimaryKey()
-    id!: number;
-}
+const UserSchema = defineEntity({
+    name: 'User',
+    tableName: 'users',
+    properties: {
+        id: p.integer().primary(),
+    },
+});
+
+export class User extends UserSchema.class {}
+
+UserSchema.setClass(User);

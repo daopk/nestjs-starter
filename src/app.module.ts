@@ -2,6 +2,7 @@ import { MikroOrmModule } from '@mikro-orm/nestjs';
 import { PostgreSqlDriver } from '@mikro-orm/postgresql';
 import { Module } from '@nestjs/common';
 import { AppController } from '~/app.controller';
+import { User } from '~/entities/user.entity';
 import { env } from '~/env';
 
 @Module({
@@ -9,7 +10,7 @@ import { env } from '~/env';
         MikroOrmModule.forRoot({
             driver: PostgreSqlDriver,
             clientUrl: env.DB_CLIENT_URL,
-            entities: ['dist/entities/*.entity.js'],
+            entities: [User],
             debug: env.isDevelopment,
         }),
     ],
