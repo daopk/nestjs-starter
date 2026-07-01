@@ -13,7 +13,7 @@ async function bootstrap() {
 
     const corsOrigins = new Set(env.CORS_ORIGINS);
     app.enableCors({
-        origin: async (origin: string) => corsOrigins.has(origin),
+        origin: async (origin) => origin !== undefined && corsOrigins.has(origin),
     });
 
     setupSwagger(app);

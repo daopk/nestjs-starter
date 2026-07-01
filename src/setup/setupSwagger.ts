@@ -22,7 +22,7 @@ export function setupSwagger(app: INestApplication) {
         withFastify: true,
         persistAuth: true,
         hideClientButton: true,
-        showToolbar: 'never',
+        showDeveloperTools: 'never',
         theme: 'bluePlanet',
     }));
 }
