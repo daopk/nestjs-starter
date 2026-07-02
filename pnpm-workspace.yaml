@@ -1,10 +1,10 @@
 allowBuilds:
-  '@nestjs/core': true
-  '@scarf/scarf': false
-  unrs-resolver: true
+    '@nestjs/core': true
+    '@scarf/scarf': false
+    unrs-resolver: true
 autoInstallPeers: false
 ignoredBuiltDependencies:
-  - '@scarf/scarf'
-  - unrs-resolver
+    - '@scarf/scarf'
+    - unrs-resolver
 onlyBuiltDependencies:
-  - '@nestjs/core'
+    - '@nestjs/core'

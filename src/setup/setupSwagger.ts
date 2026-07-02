@@ -1,6 +1,7 @@
 import { INestApplication } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { apiReference } from '@scalar/nestjs-api-reference';
+
 import { env } from '~/env';
 
 export function setupSwagger(app: INestApplication) {
@@ -17,12 +18,15 @@ export function setupSwagger(app: INestApplication) {
 
     const document = SwaggerModule.createDocument(app, config.build());
 
-    app.use(env.SWAGGER_PATH, apiReference({
-        content: document,
-        withFastify: true,
-        persistAuth: true,
-        hideClientButton: true,
-        showDeveloperTools: 'never',
-        theme: 'bluePlanet',
-    }));
+    app.use(
+        env.SWAGGER_PATH,
+        apiReference({
+            content: document,
+            withFastify: true,
+            persistAuth: true,
+            hideClientButton: true,
+            showDeveloperTools: 'never',
+            theme: 'bluePlanet',
+        }),
+    );
 }

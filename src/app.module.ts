@@ -1,6 +1,7 @@
 import { MikroOrmModule } from '@mikro-orm/nestjs';
 import { PostgreSqlDriver } from '@mikro-orm/postgresql';
 import { Module } from '@nestjs/common';
+
 import { AppController } from '~/app.controller';
 import { User } from '~/entities/user.entity';
 import { env } from '~/env';

@@ -1,0 +1,25 @@
+{
+    "$schema": "./node_modules/oxfmt/configuration_schema.json",
+    "printWidth": 120,
+    "tabWidth": 4,
+    "useTabs": false,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "bracketSpacing": true,
+    "arrowParens": "always",
+    "endOfLine": "lf",
+    "sortImports": {
+        "groups": [
+            "type-import",
+            ["value-builtin", "value-external"],
+            "type-internal",
+            "value-internal",
+            ["type-parent", "type-sibling", "type-index"],
+            ["value-parent", "value-sibling", "value-index"],
+            "unknown"
+        ]
+    },
+    "sortPackageJson": false,
+    "ignorePatterns": ["dist/**", "coverage/**", "node_modules/**", "pnpm-lock.yaml", "tsconfig.build.tsbuildinfo"]
+}

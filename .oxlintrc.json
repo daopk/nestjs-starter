@@ -1,0 +1,23 @@
+{
+    "$schema": "./node_modules/oxlint/configuration_schema.json",
+    "env": {
+        "es2023": true,
+        "node": true
+    },
+    "plugins": ["typescript", "unicorn", "oxc", "import", "promise", "node"],
+    "categories": {
+        "correctness": "error",
+        "suspicious": "warn",
+        "perf": "warn"
+    },
+    "options": {
+        "typeAware": true,
+        "reportUnusedDisableDirectives": "warn"
+    },
+    "ignorePatterns": ["dist/**", "coverage/**", "node_modules/**", "tsconfig.build.tsbuildinfo"],
+    "rules": {
+        "typescript/consistent-type-imports": ["warn", { "prefer": "no-type-imports" }],
+        "typescript/no-extraneous-class": ["warn", { "allowWithDecorator": true }],
+        "typescript/no-explicit-any": "off"
+    }
+}
