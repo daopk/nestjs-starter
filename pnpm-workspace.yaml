@@ -1,12 +1,4 @@
 allowBuilds:
-    '@nestjs/core': true
     '@scarf/scarf': false
-    unrs-resolver: true
+    esbuild: true
 autoInstallPeers: false
-ignoredBuiltDependencies:
-    - '@scarf/scarf'
-    - unrs-resolver
-minimumReleaseAgeExclude:
-    - '@daopk/env@1.3.0'
-onlyBuiltDependencies:
-    - '@nestjs/core'

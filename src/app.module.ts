@@ -1,20 +1,11 @@
 import { MikroOrmModule } from '@mikro-orm/nestjs';
-import { PostgreSqlDriver } from '@mikro-orm/postgresql';
 import { Module } from '@nestjs/common';
 
 import { AppController } from '~/app.controller';
-import { User } from '~/entities/user.entity';
-import { env } from '~/env';
+import mikroOrmConfig from '~/mikro-orm.config';
 
 @Module({
-    imports: [
-        MikroOrmModule.forRoot({
-            driver: PostgreSqlDriver,
-            clientUrl: env.DB_CLIENT_URL,
-            entities: [User],
-            debug: env.isDevelopment,
-        }),
-    ],
+    imports: [MikroOrmModule.forRoot(mikroOrmConfig)],
     controllers: [AppController],
 })
 export class AppModule {}
